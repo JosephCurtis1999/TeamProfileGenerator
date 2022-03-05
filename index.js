@@ -4,7 +4,7 @@ const inquirer = require("inquirer");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const fs = require('fs');
+const fs = require("fs");
 
 // create the page link
 const generateHTML = require('./src/generateHTML');
@@ -14,7 +14,7 @@ const teamArray = [];
 
 // prompts for the manager
 const addManager = () => {
-inquirer.prompt([
+ return inquirer.prompt([
     {
         type: 'input',
         name: 'name',
@@ -186,7 +186,7 @@ const addEmployee =() => {
 // function to generate the HTML file, similar to the writetofile function in readmegen
 
 const writeFile = data => {
-    fs.writeFile('./dist/index.html', data, err => {
+    fs.writeFile('./output/index.html', data, err => {
         if (err) {
             console.log(err)
             return;
