@@ -1,5 +1,6 @@
 // providing HTML within the js file to generate a file structure after user input
 
+// manager card
 const generateManager = function (manager) {
     return `
     <div class="col-xs-12 col-md-12 mt-4">
@@ -18,6 +19,7 @@ const generateManager = function (manager) {
     `
 };
 
+// engineer card
 const generateEngineer = function (engineer) {
     return `
     <div class="col-xs-12 col-md-12 mt-4">
@@ -36,6 +38,7 @@ const generateEngineer = function (engineer) {
     `
 };
 
+// intern card
 const generateIntern = function (intern) {
     return `
     <div class="col-xs-12 col-md-12 mt-4">
@@ -53,4 +56,22 @@ const generateIntern = function (intern) {
 </div>
 `
 };
+
+// generating the page function
+
+generateHTML = (data) => {
+
+    pageArray = [];
+
+    for (let i = 0; i < data.length; i++) {
+        const employee = data[i]
+        const role = employee.getRole();
+
+        if (role === "Manager") {
+            const managerCard = generateManager(employee);
+
+            pageArray.push(managerCard)
+        }
+    }
+}
 
