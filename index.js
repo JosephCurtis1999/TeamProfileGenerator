@@ -194,4 +194,16 @@ const writeFile = data => {
             console.log("Your team profile has been created! Please check out the index.html on your browser")
         }
     })
-}
+};
+
+addManager()
+.then(addEmployee)
+.then(teamArray => {
+    return generateHTML(teamArray)
+})
+.then (pageHTML => {
+    return writeFile(pageHTML)
+})
+.catch(err => {
+    console.log(err)
+})
