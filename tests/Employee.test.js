@@ -9,7 +9,14 @@ test('creates an employee object', () => {
 });
 
 test('gets employee name', () => {
-    const employee = new Employee('Joseph', '89', 'joecurtis9999@gmail.com');
+    const employee = new Employee('Joseph', 89, 'joecurtis9999@gmail.com');
 
     expect(employee.getName()).toEqual(expect.any(String));
 });
+
+test('gets employee ID', () => {
+    const employee = new Employee('Joseph', 89, 'joecurtis9999"gmail.com');
+    
+    expect(employee.getId()).toEqual(expect.any(Number));
+});
+
